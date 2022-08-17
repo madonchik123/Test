@@ -447,7 +447,7 @@ webhookTab:AddButton("Test Message", function()
 donation = tostring("💰 Somebody tipped N/A Robux to ".. Players.LocalPlayer.DisplayName.. " (Total: " .. Players.LocalPlayer.leaderstats.Raised.value.. ")")        
             httprequest({
             Url = getgenv().settings.webhookBox,
-            Body = game:GetService("HttpService"):JSONEncode({["content"] = "Test"}),
+            Body = game:GetService("HttpService"):JSONEncode({["content"] = donation}),
             Method = "POST",
             Headers = {["content-type"] = "application/json"}
         })
