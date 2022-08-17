@@ -444,7 +444,8 @@ end,
 webhookBox.Text = getgenv().settings.webhookBox
 webhookTab:AddButton("Test Message", function()
     if getgenv().settings.webhookToggle and getgenv().settings.webhookBox then
-        httprequest({
+donation = tostring("💰 Somebody tipped N/A Robux to ".. Players.LocalPlayer.DisplayName.. " (Total: " .. Players.LocalPlayer.leaderstats.Raised.value.. ")")        
+            httprequest({
             Url = getgenv().settings.webhookBox,
             Body = game:GetService("HttpService"):JSONEncode({["content"] = "Test"}),
             Method = "POST",
