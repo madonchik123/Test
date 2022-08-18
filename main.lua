@@ -700,6 +700,7 @@ while wait(1) do
     end
 end
 end)
+
 local Players = game:GetService("Players")
 local lp = Players.LocalPlayer
 local cooldown = 10
@@ -717,8 +718,8 @@ if mostDonated == true then
     for i, v in next, Players:GetPlayers() do
         if v.Name ~= lp.Name and v.leaderstats:WaitForChild("Donated").Value > minimumDonated then
             
-	followPath(v.Character.HumanoidRootPart.Position)
-            wait(4)
+	       followPath(v.Character.HumanoidRootPart.Position)
+            wait(6)
             game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
                 msgs[math.random(1, #msgs)],
                 "All"
@@ -732,7 +733,7 @@ elseif mostDonated == false then
     for i, v in next, Players:GetPlayers() do
         if v.Name ~= lp.Name then
             followPath(v.Character.HumanoidRootPart.Position)
-            wait(4)
+            wait(6)
             game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
                 msgs[math.random(1, #msgs)],
                 "All"
