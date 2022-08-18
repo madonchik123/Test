@@ -644,7 +644,7 @@ local lp = Players.LocalPlayer
 local cooldown = 10
 local minimumDonated = 100
 local mostDonated = true
-wait(5)
+
 --//Messages\\
 
 local msgs = {
