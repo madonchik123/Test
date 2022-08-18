@@ -702,7 +702,7 @@ end
 end)
 local Players = game:GetService("Players")
 local lp = Players.LocalPlayer
-local cooldown = 30
+local cooldown = 10
 local minimumDonated = 100
 local mostDonated = true
 
