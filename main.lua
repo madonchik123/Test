@@ -615,6 +615,7 @@ Players.LocalPlayer.leaderstats.Raised.Changed:Connect(function()
 end)
 
 --Waits for donations
+spawn(function()
 while wait(1) do
     counter = counter + 1
     if getgenv().settings.serverHopToggle then
@@ -634,6 +635,45 @@ while wait(1) do
 	        if #servers > 0 then
     			game:GetService("TeleportService"):TeleportToPlaceInstance("8737602449", servers[math.random(1, #servers)], Players.LocalPlayer)
 	        end
+        end
+    end
+end
+end)
+local Players = game:GetService("Players")
+local lp = Players.LocalPlayer
+local cooldown = 10
+local minimumDonated = 100
+local mostDonated = true
+wait(5)
+--//Messages\\
+
+local msgs = {
+    "Could You Donate to me?",
+    "Can you donate to me?"
+}
+--//Script\\
+if mostDonated == true then
+    for i, v in next, Players:GetPlayers() do
+        if v.Name ~= lp.Name and v.leaderstats:WaitForChild("Donated").Value > minimumDonated then
+            lp.Character.Humanoid:MoveTo(v.Character.HumanoidRootPart.Position)
+            wait(4)
+            game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                msgs[math.random(1, #msgs)],
+                "All"
+            )
+            wait(cooldown)
+        end
+    end
+elseif mostDonated == false then
+    for i, v in next, Players:GetPlayers() do
+        if v.Name ~= lp.Name then
+            lp.Character.Humanoid:MoveTo(v.Character.HumanoidRootPart.Position)
+            wait(4)
+            game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                msgs[math.random(1, #msgs)],
+                "All"
+            )
+            wait(cooldown)
         end
     end
 end
