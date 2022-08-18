@@ -123,7 +123,7 @@ local function followPath(destination)
 	end
 end
 for i,v in pairs(game.Workspace:GetDescendants()) do
-if string.find(v.ClassName,"Seat" then
+if string.find(v.ClassName,"Seat") then
 v:Destroy()
 end
 end
@@ -702,7 +702,7 @@ end
 end)
 local Players = game:GetService("Players")
 local lp = Players.LocalPlayer
-local cooldown = 10
+local cooldown = 30
 local minimumDonated = 100
 local mostDonated = true
 
