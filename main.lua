@@ -655,13 +655,16 @@ local msgs = {
 if mostDonated == true then
     for i, v in next, Players:GetPlayers() do
         if v.Name ~= lp.Name and v.leaderstats:WaitForChild("Donated").Value > minimumDonated then
-            lp.Character.Humanoid:MoveTo(v.Character.HumanoidRootPart.Position)
+            
+	lp.Character.Humanoid:MoveTo(v.Character.HumanoidRootPart.Position)
             wait(4)
             game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
                 msgs[math.random(1, #msgs)],
                 "All"
             )
-            wait(cooldown)
+        wait(5)
+	Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(booths[tostring(unclaimed[1])]:match("(.+), (.+), (.+)")))
+        wait(cooldown)
         end
     end
 elseif mostDonated == false then
@@ -673,6 +676,8 @@ elseif mostDonated == false then
                 msgs[math.random(1, #msgs)],
                 "All"
             )
+    	    wait(5)
+	    Players.LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(booths[tostring(unclaimed[1])]:match("(.+), (.+), (.+)")))
             wait(cooldown)
         end
     end
